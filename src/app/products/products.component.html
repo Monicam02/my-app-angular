@@ -23,8 +23,39 @@
 <input type="text" placeholder="Enter your text"/>
         </div>
         <div class="row">
-
+            <div class="col-md-4">
+                <h3>Filtered By:::</h3>
+                <button class="btn btn-danger" (click)=toggleTable()>{{show?"Hide Table":"ShowTable"}}</button>
             </div>
+        </div>
+    <div class="table-responsive" *ngIf="products.length && products && show">
+        <table class="table">
+            <thead>
+                <tr>
+                   <!-- <th>
+                        <button type="button" class="btn btn-success ">Show Image</button>
+                    </th>-->
+                    <th>Name</th>
+                    <th>Age</th>
+                    <th>Field3</th>
+                    <th>Field4</th>
+                    <th>Field5</th>
+                </tr>
+            </thead>
+            <tbody>
+                    <tr *ngFor="let product of products">
+                            
+                            <td>{{product.Name|uppercase}}</td>
+                            <td>{{product.Age|currency:"GBP"}}</td>
+                            <td>{{product.field3}}</td>
+                            <td>{{product.field4}}</td>
+                            <td>{{product.field5}}</td>
+                            
+                    </tr>
+            </tbody>
+        </table>
+    </div>
+
             
     </div>
 </div>
